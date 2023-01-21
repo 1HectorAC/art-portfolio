@@ -163,3 +163,24 @@
   width: 200px;
   height: 225px;
 }
+
+/** Image styling. **/
+.displayArt{
+  width:100%;
+  padding-top:5px;
+  border-radius: 10px 10px 10px 10px;
+}
+.profileImage{
+  border-radius: 100%;
+  
+}
+
+.headerSection{
+  background: rgb(74,74,74);
+  background: linear-gradient(0deg, rgba(74,74,74,1) 19%, rgba(38,38,38,1) 100%);
+  color: white;
+  text-shadow: 2px 2px #181818;
+  border-radius: 10px;
+  padding:10px;
+  margin-top: 7px;
+}

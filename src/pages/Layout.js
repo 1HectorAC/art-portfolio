@@ -9,7 +9,8 @@ const Layout = () => {
                 <div className="sidePanel w-25 h-100">
                     <div className="sidePanelContent text-center">
                         <div className="mx-auto">
-                            <p>Add Profile Image</p>
+                            
+                            <img className="profileImage" src={require("../images/userImageSmall.jpg")}   alt=""></img>
                         </div>
                         <h3><i>Hector Acosta</i></h3>
                         <hr style={{ color: "white" }} />

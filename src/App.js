@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import NoPage from './pages/NoPage';
 import About from './pages/About';
 import Contact from './pages/Contact';
-
+import imageInfo from './imageInfo';
 import './App.css';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout/>} >
-          <Route index element={<Home/>} />
+          <Route index element={<Home data={imageInfo} />} />
           <Route path="/About" element={<About/>} />
           <Route path="/Contact" element={<Contact/>} />
           <Route path="*" element={<NoPage/>} />

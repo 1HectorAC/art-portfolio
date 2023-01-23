@@ -80,6 +80,7 @@
   background-color: rgba(38,38,38,1);
 }
 .activeButton1v2{
+  opacity: 0.8;
   background-color: rgb(56, 56, 56);
   color:white;
   font-weight: bold;

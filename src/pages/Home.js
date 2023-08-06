@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { changeFilter, selectFilter } from '../redux/filterSlice'
+
+const FilterSection = () => {
+    const filter = useSelector(selectFilter)
+    const dispatch = useDispatch()
+    const filterOptions = ["All", "Digital", "Graphite/Charcoal", "Color Pencil", "Oil Pastel"];
+    return (
+        filterOptions.map((val, i) =>
+            <button className="btn button2" onClick={() => dispatch(changeFilter(val))} disabled={filter === val ? "True" : ""} key={"filter" + i}>
+                {val}
+            </button>
+        )
+    )
+};
+
+const ImageSection = (props) => {
+    const filter = useSelector(selectFilter)
+    return (
+        props.data.map((val, i) =>
+            <div className={val.tall ? "col-sm-3" : "col-sm-6"} style={{ display: filter === val.format || filter === "All" ? "block" : "none" }} key={"art" + i}>
+                <img className="displayArt" src={require('../images/art/' + val.file)} alt=""></img>
+            </div>
+        )
+    )
+};
+
 const Home = (props) => {
-    const [filter, SetFilter] = useState("All");
-    function changeFilter(f) {
-        SetFilter(f);
-    }
-    // Make art image elements. Includes width screen adjustments.
-    const imageElements = props.data.map((val, i) =>
-        <div className={val.tall ? "col-sm-3" : "col-sm-6"} style={{ display: filter === val.format || filter === "All" ? "block" : "none" }} key={"art" + i}>
-            <img className="displayArt" src={require('../images/art/' + val.file)} alt=""></img>
-        </div>
-    );
-    // Make filter buttons.
-    const filters = ["All", "Digital", "Graphite/Charcoal", "Color Pencil", "Oil Pastel"];
-    const filterElements = filters.map((val, i) =>
-        <button className="btn button2" onClick={() => changeFilter(val)} disabled={filter === val ? "True" : ""} key={"filter" + i}>
-            {val}
-        </button>
-    );
     return (
         <div className="container">
             <div className="row">
@@ -26,10 +36,10 @@ const Home = (props) => {
                     </div>
                     <hr />
                     <h5 style={{ display: "inline-block" }}>Filters: </h5>
-                    {filterElements}
+                    <FilterSection />
                     <hr />
                     <div className="row">
-                        {imageElements}
+                        <ImageSection data={props.data} />
                     </div>
                     <br />
                 </div>

@@ -2,12 +2,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeFilter, selectFilter } from '../redux/filterSlice'
 
-const FilterSection = () => {
+const FilterSection = (props) => {
     const filter = useSelector(selectFilter)
     const dispatch = useDispatch()
-    const filterOptions = ["All", "Digital", "Graphite/Charcoal", "Color Pencil", "Oil Pastel"];
     return (
-        filterOptions.map((val, i) =>
+        props.filterOptions.map((val, i) =>
             <button className="btn button2" onClick={() => dispatch(changeFilter(val))} disabled={filter === val ? "True" : ""} key={"filter" + i}>
                 {val}
             </button>
@@ -36,7 +35,7 @@ const Home = (props) => {
                     </div>
                     <hr />
                     <h5 style={{ display: "inline-block" }}>Filters: </h5>
-                    <FilterSection />
+                    <FilterSection filterOptions={props.filterOptions} />
                     <hr />
                     <div className="row">
                         <ImageSection data={props.data} />

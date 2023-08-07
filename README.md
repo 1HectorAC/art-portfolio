@@ -68,3 +68,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Other Setup
+
+Note that no images are included. Art images need to be added in the "images/art" folder. It will also need an "imageInfo.js" file to run. Example of this called "imageInfo_example.js" is included.
